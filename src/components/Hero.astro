@@ -1,0 +1,45 @@
+---
+import Container from './Container.astro';
+
+import arrowDown from '../images/icon-arrow-down.svg';
+---
+
+<section class="hero">
+    <Container>
+        <h1 class="hero__title">We are creatives</h1>
+        <img class="hero__arrow" src={arrowDown} alt="arrow-down">
+    </Container>
+</section>
+
+<style lang="scss">
+    .hero {
+        height: 538px;
+        background-image: url('../images/mobile/image-header.jpg');
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+        @media (min-width: 550px) {
+            height: 600px;
+            background-image: url('../images/desktop/image-header.jpg');
+        }
+
+        @media (min-width: 1024px) {
+            height: 800px;
+        }
+        
+        &__title {
+            text-align: center;
+            color: var(--clr-100);
+            padding-top: 144px;
+
+            @media (min-width: 1024px) {
+                padding-top: 195px;
+            }
+        }
+
+        &__arrow {
+            margin: 52px auto 0;
+        }
+    }
+</style>

@@ -1,0 +1,63 @@
+---
+export interface Props {
+	image: string;
+	text: string;
+	name: string;
+    role: string;
+}
+
+const { image, text, name, role } = Astro.props;
+
+---
+
+<div class="item">
+    <img src={image} alt="" class="item__image">
+    <p class="item__text">{text}</p>
+    <div class="item__details">
+        <h4 class="item__name">{name}</h4>
+        <p class="item__role">{role}</p>
+    </div>
+</div>
+
+<style lang="scss">
+    .item {
+        max-width: 450px;
+
+        @media (min-width: 1024px) {
+            flex: 1;
+            max-width: 350px;
+        }
+
+        &__image {
+            height: 72px;
+            width: 72px;
+            border-radius: 50%;
+            margin: 0 auto 32px;
+
+            @media (min-width: 1024px) {
+                margin-bottom: 58px;
+            }
+        }
+
+        &__text {
+            margin-bottom: 32px;
+            color: var(--clr-400);
+
+            @media (min-width: 1024px) {
+                margin-bottom: 70px;
+            }
+        }
+
+        &__name {
+            color: var(--clr-500);
+            margin-bottom: 9px;
+        }
+
+        &__role {
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: -0.1px;
+            color: var(--clr-200);
+        }
+    }
+</style>

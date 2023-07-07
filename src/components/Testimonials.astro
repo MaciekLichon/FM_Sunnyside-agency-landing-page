@@ -1,0 +1,70 @@
+---
+import Container from './Container.astro';
+import SingleTestimonial from './SingleTestimonial.astro';
+
+import emilyImg from '../images/image-emily.jpg';
+import thomasImg from '../images/image-thomas.jpg';
+import jennieImg from '../images/image-jennie.jpg';
+
+const testimonialsData = [
+    {
+        image: emilyImg,
+        text: 'We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.',
+        name: 'Emily R.',
+        role: 'Marketing Director'
+    },
+    {
+        image: thomasImg,
+        text: 'Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.',
+        name: 'Thomas S.',
+        role: 'Chief Operating Officer'
+    },
+    {
+        image: jennieImg,
+        text: 'Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!',
+        name: 'Jennie F.',
+        role: 'Business Owner'
+    },
+];
+---
+
+<section class="testimonials">
+    <Container>
+        <h5>Client testimonials</h5>
+        <div class="testimonials__list">
+            {testimonialsData.map(item => (
+                <SingleTestimonial {...item} />
+            ))}
+        </div>
+    </Container>
+</section>
+
+<style lang="scss">
+    .testimonials {
+        margin-top: 64px;
+        margin-bottom: 86px;
+        text-align: center;
+
+        @media (min-width: 1024px) {
+            margin: 160px 0;
+            padding: 0 24px;
+        }
+
+
+        &__list {
+            margin-top: 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 64px;
+
+            @media (min-width: 1024px) {
+                flex-direction: row;
+                gap: 30px;
+                justify-content: center;
+            }
+        }
+    }
+</style>
+
+
